@@ -3,7 +3,6 @@ package com.hellofresh.datastats.service;
 import com.hellofresh.datastats.model.DataEvent;
 import com.hellofresh.datastats.model.Stats;
 import org.junit.jupiter.api.Test;
-
 import java.sql.Timestamp;
 import java.util.Arrays;
 import java.util.List;
@@ -177,7 +176,6 @@ class EventServiceTest {
 
         double expectedAvgY = (event1.getY() + event2.getY() + event4.getY())/(double)Arrays.stream(eventService.getCountY()).sum();
         assertEquals(expectedAvgY, stats.getAvgY());
-
 
     }
 }

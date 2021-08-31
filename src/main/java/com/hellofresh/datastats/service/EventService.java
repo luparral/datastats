@@ -22,7 +22,6 @@ public class EventService {
         this.countY = new int[offset];
         this.sumX = new double[offset];
         this.sumY = new long[offset];
-
         this.lastUpdate = null;
     }
 
