@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit;
 @Service
 public class EventService {
     private Timestamp lastUpdate;
-    private int[] countX; // http://tutorials.jenkov.com/java-util-concurrent/atomicintegerarray.html
+    private int[] countX;
     private int[] countY;
     private double[] sumX;
     private long[] sumY;
@@ -68,10 +68,10 @@ public class EventService {
         events.forEach(event -> {
             Integer diff = getDifferenceInSeconds(now, event.getTimestamp());
             if (diff >= 0 && diff < 60){ // negative diff are events with a future timeStamp. // more than 60 diffs events are discarded
-                countX[diff]+=1;
+                countX[diff]= countX[diff] + 1;
                 sumX[diff]+=event.getX();
 
-                countY[diff]+=1;
+                countY[diff] = countY[diff] + 1;
                 sumY[diff]+=event.getY();
             }
         });
