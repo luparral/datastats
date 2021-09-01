@@ -36,7 +36,7 @@ public class EventService {
         Integer diffPrevUpdate = getDifferenceInSeconds(now, this.lastUpdate);
 
         if (diffPrevUpdate > offset ) {
-            // Stored Data is too old, so can set all values in arrays to be null again
+            // Stored Data is too old, so can set all values in arrays to be zero again
             Arrays.fill(countX, 0);
             Arrays.fill(sumX, 0);
             Arrays.fill(countY, 0);
@@ -66,7 +66,7 @@ public class EventService {
 
         events.forEach(event -> {
             Integer diff = getDifferenceInSeconds(now, event.getTimestamp());
-            if (diff >= 0 && diff < 60){ // negative diff are events with a future timeStamp. // more than 60 diffs events are discarded
+            if (diff >= 0 && diff < 60){ // negative diff are events with a future timeStamp. // More than 60 secs diffs events are discarded
                 countX[diff]= countX[diff] + 1;
                 sumX[diff]+=event.getX();
 
