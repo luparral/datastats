@@ -66,7 +66,7 @@ public class EventService {
 
         events.forEach(event -> {
             Integer diff = getDifferenceInSeconds(now, event.getTimestamp());
-            if (diff >= 0 && diff < 60){ // negative diff are events with a future timeStamp. // More than 60 secs diffs events are discarded
+            if (diff >= 0 && diff < 60){ // More than 60 secs diffs events are discarded. Negative diff are events with a future timeStamp which should occur.
                 countX[diff]= countX[diff] + 1;
                 sumX[diff]+=event.getX();
 
