@@ -46,7 +46,7 @@ public class EventService {
             // There is some data stored that is still in range of 60 seconds and I need to use. Some other data is old and I have to delete.
             // Will shift the array to save the values that are still in range of the 60 seconds and put 0s in the outdated positions.
 
-            Integer lastValid = offset - diffPrevUpdate - 1; // index of last valid second
+            Integer lastValid = offset - diffPrevUpdate - 1; // Index of last valid second
 
             for (int i = lastValid; i > 0; i--) {
                 countX[i+diffPrevUpdate] = countY[i];
