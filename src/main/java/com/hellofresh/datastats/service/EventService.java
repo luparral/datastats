@@ -36,7 +36,7 @@ public class EventService {
         Integer diffPrevUpdate = getDifferenceInSeconds(now, this.lastUpdate);
 
         if (diffPrevUpdate > offset ) {
-            // Stored Data is too old, so can set all values in arrays to be null again
+            // Stored Data is too old, so can set all values in arrays to be zero again
             Arrays.fill(countX, 0);
             Arrays.fill(sumX, 0);
             Arrays.fill(countY, 0);
@@ -46,7 +46,7 @@ public class EventService {
             // There is some data stored that is still in range of 60 seconds and I need to use. Some other data is old and I have to delete.
             // Will shift the array to save the values that are still in range of the 60 seconds and put 0s in the outdated positions.
 
-            Integer lastValid = offset - diffPrevUpdate - 1; // index of last valid second
+            Integer lastValid = offset - diffPrevUpdate - 1; // Index of last valid second
 
             for (int i = lastValid; i > 0; i--) {
                 countX[i+diffPrevUpdate] = countY[i];
@@ -66,7 +66,7 @@ public class EventService {
 
         events.forEach(event -> {
             Integer diff = getDifferenceInSeconds(now, event.getTimestamp());
-            if (diff >= 0 && diff < 60){ // negative diff are events with a future timeStamp. // more than 60 diffs events are discarded
+            if (diff >= 0 && diff < 60){ // More than 60 secs diffs events are discarded. Negative diff are events with a future timeStamp which should occur.
                 countX[diff]= countX[diff] + 1;
                 sumX[diff]+=event.getX();
 
