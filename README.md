@@ -25,7 +25,7 @@ Returns statistics about the data points that lie within the past 60 seconds, se
 
 - Java version: java 11 
 - Maven version: Apache Maven 3.8.2 
-- Run app: `java -jar target/datastats-0.0.1-SNAPSHOT.jar`
+- Run app: `java -jar datastats-0.0.1-SNAPSHOT.jar` (the jar can be found in the root folder of this repository)
 
 
 ## Project Architecture
