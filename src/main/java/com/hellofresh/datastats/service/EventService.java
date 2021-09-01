@@ -30,7 +30,7 @@ public class EventService {
         updateData(events, now);
     }
 
-    public void updateData(List<DataEvent> events, Timestamp now) {
+    public synchronized void updateData(List<DataEvent> events, Timestamp now) {
         if (this.lastUpdate == null)  {this.lastUpdate = now;}
 
         Integer diffPrevUpdate = getDifferenceInSeconds(now, this.lastUpdate);
@@ -85,7 +85,7 @@ public class EventService {
         return diff;
     }
 
-    public Stats getStats() {
+    public synchronized Stats getStats() {
         int total = Arrays.stream(countX).sum();
         double sumOfX = Arrays.stream(sumX).sum();
         long sumOfY = Arrays.stream(sumY).sum();
