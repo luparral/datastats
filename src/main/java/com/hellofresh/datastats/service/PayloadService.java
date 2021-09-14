@@ -37,12 +37,8 @@ public class PayloadService {
         return events;
     }
 
-    public boolean valid(String x, String y, Timestamp ts) throws InvalidYException, InvalidXException {
-        try {
+    public boolean valid(String x, String y, Timestamp ts) throws InvalidXException, InvalidYException {
             return validX(x) && validY(y) && (ts.getClass() == Timestamp.class);
-        } catch (Exception e) {
-            throw e;
-        }
     }
 
     public Timestamp createTimestampFromString(String stringUnixMs) throws InvalidTimeStampException {

@@ -1,5 +1,7 @@
 package com.hellofresh.datastats.model;
 
+import java.util.Locale;
+
 public class Stats {
 
     public Stats(int total, double sumX, double avgX, long sumY, double avgY) {
@@ -17,7 +19,8 @@ public class Stats {
     private double avgY;
 
     public String printResponse() {
-        return total+","+sumX+","+avgX+","+sumY+","+avgY+"\n";
+        String avYString = String.format(Locale.ROOT,"%.3f\n", avgY);
+        return total+","+sumX+","+avgX+","+sumY+","+avYString+"\n";
     }
 
     public int getTotal() {
